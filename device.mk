@@ -294,8 +294,14 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
+    android.hardware.power-service.laurel_sprout-libperfmgr \
     android.hardware.power@1.2.vendor
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power-libperfmgr/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/pixel    
 
 # Public libraries
 PRODUCT_COPY_FILES += \
