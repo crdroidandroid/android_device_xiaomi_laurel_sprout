@@ -32,11 +32,12 @@ PRODUCT_DEVICE := laurel_sprout
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi A3
 PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_SHIPPING_API_LEVEL := 28
 
-BUILD_FINGERPRINT := "Xiaomi/laurel_sprout/laurel_sprout:10/QKQ1.190910.002/V11.0.14.0.QFQMIXM:user/release-keys"
+BUILD_FINGERPRINT := "Xiaomi/laurel_sprout/laurel_sprout:10/QKQ1.190910.002/V11.0.15.0.QFQMIXM:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="qssi-user 10 QKQ1.190910.002 V11.0.14.0.QFQMIXM release-keys" \
+    PRIVATE_BUILD_DESC="qssi-user 10 QKQ1.190910.002 V11.0.15.0.QFQMIXM release-keys" \
     PRODUCT_NAME="laurel_sprout" \
     TARGET_DEVICE="laurel_sprout"
 
