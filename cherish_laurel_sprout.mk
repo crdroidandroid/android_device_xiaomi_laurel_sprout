@@ -19,18 +19,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common Corvus stuff
-$(call inherit-product, vendor/corvus/config/common_full_phone.mk)
+# Inherit some common CherishOs stuff
+$(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
-# Corvus Official
-CORVUS_MAINTAINER := H3M3L
-RAVEN_LAIR := Official
+# Cherish Official
+CHERISH_BUILD_TYPE := OFFICIAL
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=RAYAN(BASUBHAJANTRI)
+
+EXTRA_UDFPS_ANIMATIONS := true
+HAS_FOD := true
 
 # FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
 
-FOD_ANIMATIONS := true
-HAS_FOD := true
 
 # Pixel charging animation
 TARGET_INCLUDE_PIXEL_CHARGER := true
@@ -45,7 +47,7 @@ $(call inherit-product, $(LOCAL_PATH)/laurel_sprout.mk)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := laurel_sprout
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := corvus_laurel_sprout
+PRODUCT_NAME := cherish_laurel_sprout
 PRODUCT_MODEL := Mi A3
 
 
@@ -57,5 +59,11 @@ BUILD_FINGERPRINT := "google/raven/raven:12/SP2A.220505.002/8353555:user/release
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="laurel_sprout-user 10 QKQ1.190910.002 V11.0.15.0.QFQMIXM release-keys" \
     PRODUCT_NAME="laurel_sprout"
-    
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Gapps build
+WITH_GMS := true
+
+# Quick tap
+TARGET_SUPPORTS_QUICK_TAP := true
