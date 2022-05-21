@@ -114,5 +114,6 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
+$(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
 endif
