@@ -10,8 +10,13 @@
       "branch"       : "12.1"
    },
    {  
-      "repository"   : "android_vendor_xiaomi_laurel_sprout",
+      "repository"   : "proprietary_vendor_xiaomi_laurel_sprout",
       "target_path"  : "vendor/xiaomi/laurel_sprout",
+      "branch"       : "12.1"
+   },
+   {  
+      "repository"   : "vendor_xiaomi_laurel_sprout-extra",
+      "target_path"  : "vendor/xiaomi/laurel_sprout-extra",
       "branch"       : "12.1"
    }
 ]

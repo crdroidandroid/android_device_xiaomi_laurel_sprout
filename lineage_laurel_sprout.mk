@@ -22,6 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit some common CrDroid stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Inherit our extra vendor repo
+$(call inherit-product, vendor/xiaomi/laurel_sprout-extra/laurel_sprout-extra-vendor.mk)
+
 # Inherit from laurel_sprout device
 $(call inherit-product, $(LOCAL_PATH)/laurel_sprout.mk)
 
