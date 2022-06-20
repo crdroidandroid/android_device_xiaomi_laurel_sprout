@@ -28,6 +28,7 @@ HAS_FOD := true
 
 # maintainer flag
 RICE_MAINTAINER := BASUBHAJANTRI
+RICE_OFFICIAL := true
 
 # FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
