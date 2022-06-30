@@ -61,7 +61,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Gapps build
-WITH_GAPPS := true
+WITH_GMS := true
 
 # Quick tap
 TARGET_SUPPORTS_QUICK_TAP := true
