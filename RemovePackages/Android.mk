@@ -40,6 +40,41 @@ LOCAL_OVERRIDES_PACKAGES := \
 	USCCDM \
 	VZWAPNLib \
 	VzwOmaTriger \
+        AmbientSensePrebuilt \
+        arcore \
+        ConnMO \
+        ConnMetrics \
+        DCMO \
+        DevicePolicyPrebuilt \
+        DMService \
+        GCS \
+        GoogleTTS \
+        Maps \
+        MyVerizonServices \
+        OBDM_Permissions \
+        obdm_stub \
+        OdadPrebuilt \
+        OemDmTrigger \
+        OPScreenRecord \
+        Ornament \
+        PixelBuds \
+        PixelLiveWallpaperPrebuilt \
+        RecorderPrebuilt \
+        SafetyHubPrebuilt \
+        SCONE \
+        ScribePrebuilt \
+        Showcase \
+        SoundAmplifierPrebuilt \
+        SprintDM \
+        SprintHM \
+        Tycho \
+        USCCDM \
+        Via \
+        Videos \
+        VZWAPNLib \
+        VzwOmaTrigger \
+        YouTube \
+        YouTubeMusicPrebuilt \
 
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED

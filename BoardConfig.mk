@@ -21,7 +21,7 @@
 # included in a build is to use PRODUCT_PACKAGES in a product
 # definition file).
 #
-
+ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/xiaomi/laurel_sprout
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_DUP_SYSPROP := true
