@@ -24,6 +24,7 @@
 
 DEVICE_PATH := device/xiaomi/laurel_sprout
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_DUP_SYSPROP := true
 RELAX_USES_LIBRARY_CHECK := true
 # A/B
 AB_OTA_UPDATER := true
