@@ -18,7 +18,11 @@
 
 #include "FingerprintInscreen.h"
 
+#include <android-base/file.h>
 #include <android-base/logging.h>
+
+#include <chrono>
+#include <cmath>
 #include <fstream>
 #include <cmath>
 
@@ -41,6 +45,50 @@
 #define FOD_SENSOR_Y 1356
 #define FOD_SENSOR_SIZE 134
 
+#define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui"
+#define DIM_LAYER_OFF_DELAY 85ms
+
+#define FOD_SENSOR_X 445
+#define FOD_SENSOR_Y 1931
+#define FOD_SENSOR_SIZE 190
+
+#define DIM_LAYER_HBM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm"
+
+using ::android::base::WriteStringToFile;
+using namespace std::chrono_literals;
+
+namespace {
+
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
+
+static bool readBool(int fd) {
+    char c;
+    int rc;
+
+    rc = lseek(fd, 0, SEEK_SET);
+    if (rc) {
+        LOG(ERROR) << "failed to seek fd, err: " << rc;
+        return false;
+    }
+
+    rc = read(fd, &c, sizeof(char));
+    if (rc != 1) {
+        LOG(ERROR) << "failed to read bool from fd, err: " << rc;
+        return false;
+    }
+
+    return c != '0';
+}
+
+// Write value to path and close file.
+bool WriteToFile(const std::string& path, uint32_t content) {
+    return WriteStringToFile(std::to_string(content), path);
+}
+}  // anonymous namespace
 namespace vendor {
 namespace lineage {
 namespace biometrics {
@@ -82,6 +130,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 Return<void> FingerprintInscreen::onPress() {
     set(DISPPARAM_PATH, DISPPARAM_FOD_BACKLIGHT_HBM);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
+    WriteToFile(DIM_LAYER_HBM_PATH, 1);
     return Void();
 }
 
@@ -93,6 +142,7 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
+    WriteToFile(DIM_LAYER_HBM_PATH, 1);
     return Void();
 }
 
@@ -100,6 +150,8 @@ Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
     set(DISPPARAM_PATH, DISPPARAM_FOD_BACKLIGHT_RESET);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    std::this_thread::sleep_for(DIM_LAYER_OFF_DELAY);
+    WriteToFile(DIM_LAYER_HBM_PATH, 0);
     return Void();
 }
 
