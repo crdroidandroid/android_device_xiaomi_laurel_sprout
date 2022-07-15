@@ -19,16 +19,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common RiceDroidOs stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common StagOs stuff
+$(call inherit-product, vendor/stag/main.mk)
 
 # UDFPS ICONS/ANIMATIONS
-TARGET_HAS_UDFPS := true
+EXTRA_UDFPS_ANIMATIONS := true
 HAS_FOD := true
 
-# maintainer flag
-RICE_MAINTAINER := BASUBHAJANTRI
-RICE_OFFICIAL := true
+
+# Official  stuff
+BUILD_TYPE := OFFICIAL
 
 # FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
@@ -46,7 +46,7 @@ $(call inherit-product, $(LOCAL_PATH)/laurel_sprout.mk)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := laurel_sprout
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := lineage_laurel_sprout
+PRODUCT_NAME := stag_laurel_sprout
 PRODUCT_MODEL := Mi A3
 
 # ABI Checks
@@ -61,7 +61,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Gapps build
-WITH_GMS := true
+WITH_GAPPS := true
 
 # Quick tap
 TARGET_SUPPORTS_QUICK_TAP := true
