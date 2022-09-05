@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+
 Copyright (c) 2014, The Linux Foundation. All rights reserved.
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -13,6 +15,7 @@ met:
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
+
 THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
 WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -24,6 +27,7 @@ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 -->
 <resources>
     <!-- Enable doze mode -->
@@ -31,6 +35,41 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <bool name="config_fpCancelIfNotIdle">true</bool>
+
+    <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
+    <bool name="config_show4GForLTE">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/card0/sde-crtc-0/measured_fps</string>
+
+    <!-- Type of a sensor that provides a low-power estimate of the desired display
+         brightness, suitable to listen to while the device is asleep (e.g. during
+         always-on display) -->
+    <string name="doze_brightness_sensor_type" translatable="false">xiaomi.sensor.aod</string>
+
+    <!-- Doze: Table that translates sensor values from the doze_brightness_sensor_type sensor
+               to brightness values; -1 means keeping the current brightness. -->
+    <integer-array name="config_doze_brightness_sensor_to_brightness">
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>1</item>
+        <item>255</item>
+        <item>1</item>
+    </integer-array>
+
+    <!-- Doze: Table that translates sensor values from the doze_brightness_sensor_type sensor
+               to an opacity value for a black scrim that is overlayed in AOD1.
+               Valid range is from 0 (transparent) to 255 (opaque).
+               -1 means keeping the current opacity. -->
+    <integer-array name="config_doze_brightness_sensor_to_scrim_opacity">
+        <item>-1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
     
     <!-- Color of the UDFPS pressed view -->
     <color name="config_udfpsColor">#00ffffff</color>
@@ -39,38 +78,38 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             0 - GLOBAL HBM 
             1 - LOCAL HBM
     -->
-    <integer name="config_udfpsHbmType">0</integer>
+    <integer name="config_udfps_hbm_type">0</integer>
 
     <!-- The radius of the enrollment progress bar, in dp -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">68</integer>
-
-    <!-- Use framework FOD dimming instead of kernel dimming -->
-    <bool name="config_udfpsFrameworkDimming">true</bool>
-
+    
     <!-- Array of brightness-alpha lut for framework dimming -->
     <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
           <item>0,255</item>
-          <item>1,226</item>
-          <item>2,218</item>
-          <item>3,211</item>
+          <item>1,224</item>
+          <item>2,214</item>
+          <item>3,213</item>
           <item>4,207</item>
-          <item>5,202</item>
-          <item>6,199</item>
-          <item>8,192</item>
-          <item>10,187</item>
-          <item>15,176</item>
-          <item>20,167</item>
-          <item>30,153</item>
-          <item>45,136</item>
-          <item>70,115</item>
-          <item>100,95</item>
-          <item>120,84</item>
-          <item>140,74</item>
-          <item>160,65</item>
-          <item>180,57</item>
-          <item>200,49</item>
-          <item>220,41</item>
-          <item>240,34</item>
-          <item>260,28</item>
+          <item>5,203</item>
+          <item>6,201</item>
+          <item>8,197</item>
+          <item>10,193</item>
+          <item>15,182</item>
+          <item>20,172</item>
+          <item>30,157</item>
+          <item>45,130</item>
+          <item>70,108</item>
+          <item>100,86</item>
+          <item>120,71</item>
+          <item>140,58</item>
+          <item>160,47</item>
+          <item>180,34</item>
+          <item>200,22</item>
+          <item>220,14</item>
+          <item>240,6</item>
+          <item>260,0</item>
     </string-array>
-    </resources>
+    
+    <!-- Use framework FOD dimming instead of kernel dimming -->
+    <bool name="config_udfpsFrameworkDimming">true</bool>
+</resources>
