@@ -482,6 +482,10 @@ PRODUCT_SOONG_NAMESPACES += \
 
 QCOM_SOONG_NAMESPACE := $(LOCAL_PATH)
 
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI
+
 # Secure Element
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \
