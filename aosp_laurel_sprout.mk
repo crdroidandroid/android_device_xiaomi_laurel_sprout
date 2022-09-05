@@ -20,33 +20,24 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit some common StagOs stuff
-$(call inherit-product, vendor/stag/main.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # UDFPS ICONS/ANIMATIONS
 EXTRA_UDFPS_ANIMATIONS := true
 HAS_FOD := true
 
-
-# Official  stuff
-BUILD_TYPE := OFFICIAL
-
-# FaceUnlock
-TARGET_FACE_UNLOCK_SUPPORTED := true
-
 # Pixel charging animation
 TARGET_INCLUDE_PIXEL_CHARGER := true
-
 TARGET_BOOT_ANIMATION_RES := 720
-TARGET_SUPPORTS_GOOGLE_RECORDER := true
-TARGET_GAPPS_ARCH := arm64
 
 # Inherit from laurel_sprout device
 $(call inherit-product, $(LOCAL_PATH)/laurel_sprout.mk)
 
+# Device identifier.
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := laurel_sprout
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := stag_laurel_sprout
+PRODUCT_NAME := aosp_laurel_sprout
 PRODUCT_MODEL := Mi A3
 
 # ABI Checks
@@ -60,11 +51,17 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# Gapps build
-WITH_GAPPS := true
-
-# Quick tap
+#PPUI
+IS_PHONE := true
 TARGET_SUPPORTS_QUICK_TAP := true
-
-# Enable blur support
+CUSTOM_BUILD_TYPE := OFFICIAL
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+TARGET_INCLUDE_STOCK_ACORE := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_ENABLE_BLUR := true
+PIXEL_LAUNCHER_MOD := true
+
+PRODUCT_PRODUCT_PROPERTIES += \
+ro.pixelplusui.maintainer=VitorSSSouzaBR \
+org.pixelplusui.device=Xiaomi Mi A3
