@@ -166,7 +166,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2022-05-08
+VENDOR_SECURITY_PATCH := 2022-01-08
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
