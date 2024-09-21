@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "LineageSDKLaurelSprout",
+    product_specific: true,
+}
