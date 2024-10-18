@@ -41,10 +41,10 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS := -Wno-unused-parameter -Wno-unused-variable
 LOCAL_CFLAGS += -DMODE_EXT
 
-LOCAL_MODULE := android.hardware.power-service.sweet-libperfmgr
-LOCAL_INIT_RC := android.hardware.power-service.sweet-libperfmgr.rc
+LOCAL_MODULE := android.hardware.power-service.laurel_sprout-libperfmgr
+LOCAL_INIT_RC := android.hardware.power-service.laurel_sprout-libperfmgr.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
-LOCAL_VINTF_FRAGMENTS := android.hardware.power-service.sweet.xml
+LOCAL_VINTF_FRAGMENTS := android.hardware.power-service.laurel_sprout.xml
 
 include $(BUILD_EXECUTABLE)

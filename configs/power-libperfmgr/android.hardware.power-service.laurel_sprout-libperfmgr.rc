@@ -1,4 +1,4 @@
-service vendor.power-hal-aidl /vendor/bin/hw/android.hardware.power-service.sweet-libperfmgr
+service vendor.power-hal-aidl /vendor/bin/hw/android.hardware.power-service.laurel_sprout-libperfmgr
     class hal
     user root
     group system
