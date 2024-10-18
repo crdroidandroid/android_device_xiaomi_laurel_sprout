@@ -347,7 +347,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh
 
 PRODUCT_PACKAGES += \
-    init.laurel_sprout.rc \
     init.msm.usb.configfs.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
